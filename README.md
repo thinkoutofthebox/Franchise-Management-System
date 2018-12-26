@@ -1,0 +1,2 @@
+# Franchise
+Franchise Management System
