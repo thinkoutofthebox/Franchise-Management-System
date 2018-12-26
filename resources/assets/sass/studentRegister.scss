@@ -1,0 +1,146 @@
+//own mixins and variables
+@import "references";
+@import "modules/accordianView";
+.st-phone-input{
+	 flex: 1;
+}
+
+.uploadPhoto{
+	position:relative;
+	@include center;
+	video{
+		width:100%;
+	}
+	.defaultImg{
+		width:300px;
+		height:300px;
+		@include center;	
+		border:1px solid $gray-color;
+		position:relative;
+		background-color:$gray-light;
+		overflow:hidden;
+		i.fa-user{
+			font-size: 250px;
+    			margin: 0 auto;
+    			color: #999;
+    			display: block;
+    			text-align: center;
+		}
+		#start-camera{
+			background-color:$white;
+			@include text-center;
+			color:$cyan;
+			padding:8px;
+			position:absolute;
+			bottom:0;
+			left:0;
+			right:0;
+		}
+		.cameraView{
+			position:absolute;
+			height:100%;
+			width:100%;
+			top:0;
+			bottom:0;
+			object-fit:cover;
+		}
+		canvas{
+			display:none;
+		}
+		#controlsWrap{
+			position: absolute;
+    			z-index: 9999;
+    			bottom: 10px;
+			width:100%;
+			@include text-center;
+			> a{
+				background-color:rgba(0, 0, 0, 0.8);
+				@include circle;
+				width: 50px;
+    				height: 50px;
+    				display: inline-block;
+    				line-height: 53px;
+				@include center;
+				@include text-center;
+				@include anim(all, 0.3s, ease);
+				i{
+					color:$white;
+					opacity:0.8;
+					font-size:20px;	
+				}	
+				&:hover{
+					@include anim(all, 0.3s, ease);
+					i{
+						opacity:1;
+					}
+				}
+				&.disabled{
+					display:none;
+				}
+			}
+		}	
+	}
+}
+.modal-open #phone-otp{
+	overflow:hidden;
+}
+.otp-conatiner{
+	@include text-center;
+	.otp-icon{
+		border:1px solid $gray-color;
+		@include circle;
+		width:60px;
+		height:60px;
+		@include text-center;
+		line-height:76px;
+		@include center;
+		margin-bottom:15px;
+		i{
+			font-size:40px;
+			color:$gray-color;
+		}	
+	}
+	label{
+		font-size:$font-18;
+		display:block;
+	}
+	.otpInput{
+		border:none;
+		border-bottom:15px dashed $gray-lighter;
+		padding-bottom:15px;
+		outline:none;
+		margin-bottom:20px;
+		letter-spacing:35px;
+		max-width:157px;
+		font-size:18px;
+		color:$cyan;
+		padding-left:5px;
+		&:focus{
+			outline:none;
+			box-shadow:none
+		}		
+	}
+}
+
+.pageHeader{
+	justify-content: space-between;	
+}
+.studentInfo{
+	p{
+		font-size:$font-16;
+	}
+}
+.studentImg{
+	width:100%;
+	img{
+		width:100%;
+	}
+}
+.referralNumb{
+	color:$gray-color; 
+	span{ 
+		padding:8px;
+		border:1px solid $gray-light;
+		color:$cyan;
+	}
+}

@@ -1,0 +1,28 @@
+@import "references";
+.stepsLinks{
+	margin-top: 20px;
+	.step-item{
+		background-color: $white;
+		@include border-radius(5px);
+		@include anim(all, 0.1s, ease-in-out);
+		padding: 15px;
+		display: block;
+		@include box-shadow(1px, 2px, 3px, #E6E9EC);
+		border:1px solid $white;
+		margin-bottom: 15px;
+		font-size: $font-18;
+		color: $gray-color;
+		&.disabled{
+			pointer-events: none;
+			opacity: 0.5;
+		}
+	}
+	@include tablet-wide{
+		width: 95%;
+		 .step-item:hover{
+			border-color:$brand-color;
+			background-color: $brand-color-light;
+			text-decoration: none;
+		}
+	}
+}

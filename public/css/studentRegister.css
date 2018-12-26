@@ -1,0 +1,276 @@
+/* BACKGROUND SIZE */
+
+/* USAGE Example: @include background-size(100%, 100%); */
+
+/* BOX SIZING */
+
+/* usage example: @include box-sizing(border-box); */
+
+/* POSITION */
+
+/* USAGE EXAMPLE : @include position(absolute, 10px, null, 10px, 10px); */
+
+/* OPACITY */
+
+/* USAGE EXAMPLE : @include opacity(0.2); */
+
+/* Arrows / Triangles */
+
+/* Circle */
+
+/* Not Text */
+
+/* Auto */
+
+/* generic transform */
+
+/* rotate */
+
+/* rotate */
+
+/* scale */
+
+/* translate */
+
+/* skew */
+
+/* transform origin */
+
+/* Font Size */
+
+/*$line-height-base: 1.625em !default;*/
+
+/* COLORS */
+
+.accordion .card {
+  margin-bottom: 15px;
+}
+
+.accordion .card .card-header {
+  padding: 10px 0px;
+  background-color: #ffffff;
+  margin-bottom: 0;
+}
+
+.accordion .card .card-header h5 {
+  color: #333;
+}
+
+.accordion .card .card-header h5 button {
+  display: block;
+  text-decoration: none;
+  color: #333;
+  position: relative;
+  padding-right: 50px;
+  text-align: left;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.accordion .card .card-header h5 button > i {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.accordion .card .card-header h5 button.collapsed {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.accordion .card .card-header h5 button.collapsed > i {
+  -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.st-phone-input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.uploadPhoto {
+  position: relative;
+  margin: 0 auto;
+}
+
+.uploadPhoto video {
+  width: 100%;
+}
+
+.uploadPhoto .defaultImg {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  border: 1px solid #666;
+  position: relative;
+  background-color: #e0e0e0;
+  overflow: hidden;
+}
+
+.uploadPhoto .defaultImg i.fa-user {
+  font-size: 250px;
+  margin: 0 auto;
+  color: #999;
+  display: block;
+  text-align: center;
+}
+
+.uploadPhoto .defaultImg #start-camera {
+  background-color: #ffffff;
+  text-align: center;
+  color: #1ea69a;
+  padding: 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.uploadPhoto .defaultImg .cameraView {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.uploadPhoto .defaultImg canvas {
+  display: none;
+}
+
+.uploadPhoto .defaultImg #controlsWrap {
+  position: absolute;
+  z-index: 9999;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.uploadPhoto .defaultImg #controlsWrap > a {
+  background-color: rgba(0, 0, 0, 0.8);
+  /*width: $radius / 2;
+    height: $radius / 2;*/
+  border-radius: 50% 50%;
+  -moz-border-radius: 50% 50%;
+  -webkit-border-radius: 50% 50%;
+  -o-border-radius: 50% 50%;
+  -ms-border-radius: 50% 50%;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  line-height: 53px;
+  margin: 0 auto;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.uploadPhoto .defaultImg #controlsWrap > a i {
+  color: #ffffff;
+  opacity: 0.8;
+  font-size: 20px;
+}
+
+.uploadPhoto .defaultImg #controlsWrap > a:hover {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.uploadPhoto .defaultImg #controlsWrap > a:hover i {
+  opacity: 1;
+}
+
+.uploadPhoto .defaultImg #controlsWrap > a.disabled {
+  display: none;
+}
+
+.modal-open #phone-otp {
+  overflow: hidden;
+}
+
+.otp-conatiner {
+  text-align: center;
+}
+
+.otp-conatiner .otp-icon {
+  border: 1px solid #666;
+  /*width: $radius / 2;
+    height: $radius / 2;*/
+  border-radius: 50% 50%;
+  -moz-border-radius: 50% 50%;
+  -webkit-border-radius: 50% 50%;
+  -o-border-radius: 50% 50%;
+  -ms-border-radius: 50% 50%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 76px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.otp-conatiner .otp-icon i {
+  font-size: 40px;
+  color: #666;
+}
+
+.otp-conatiner label {
+  font-size: 18px;
+  display: block;
+}
+
+.otp-conatiner .otpInput {
+  border: none;
+  border-bottom: 15px dashed #c2c2c2;
+  padding-bottom: 15px;
+  outline: none;
+  margin-bottom: 20px;
+  letter-spacing: 35px;
+  max-width: 157px;
+  font-size: 18px;
+  color: #1ea69a;
+  padding-left: 5px;
+}
+
+.otp-conatiner .otpInput:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.pageHeader {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.studentInfo p {
+  font-size: 16px;
+}
+
+.studentImg {
+  width: 100%;
+}
+
+.studentImg img {
+  width: 100%;
+}
+
+.referralNumb {
+  color: #666;
+}
+
+.referralNumb span {
+  padding: 8px;
+  border: 1px solid #e0e0e0;
+  color: #1ea69a;
+}
+

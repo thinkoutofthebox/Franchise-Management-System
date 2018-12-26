@@ -1,0 +1,434 @@
+.card-header {
+    display: block;
+    font-size: $font-18;
+    font-weight: bold;
+    color: #4d4d4d;
+    margin-bottom: 15px;
+}
+
+
+.form-group {
+    margin-bottom: 1em;
+    zoom: 1;
+    .control-label {
+        margin-bottom: 5px;
+        color: $gray-color;
+    }
+    .formControl {
+        margin-bottom: 1em;
+        zoom: 1;
+        /*display: inherit;*/
+        position: relative;
+        width: 100%;
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            padding-left: 4.4em;
+        }
+        label {
+            padding: 5px 0px 0 0;
+        }
+        .valueUnit {
+            display: block;
+            text-align: right;
+            color: $gray-lighter;
+            text-transform: uppercase;
+        }
+        textarea {
+            resize: none;
+	    background-color: #f9f9f9;
+            border: 1px solid #e5e5e5;
+	    border-radius:3px;
+        }
+        input,
+        input[type="radio"]+label,
+        input[type="checkbox"]+label:before,
+        select option,
+        select {
+            width: 100%;
+            padding: 0.5em;
+            line-height: 1.4;
+            background-color: #f9f9f9;
+            border: 1px solid #e5e5e5;
+	    border-radius:3px;
+            -webkit-transition: 0.35s ease-in-out;
+            -moz-transition: 0.35s ease-in-out;
+            -o-transition: 0.35s ease-in-out;
+            transition: 0.35s ease-in-out;
+            transition: all 0.35s ease-in-out;
+            &:focus {
+                outline: 0;
+                border-color: #4d4d4d;
+                box-shadow: none;
+                +.input-icon {
+                    &:after {
+                        border-right-color: #4d4d4d;
+                    }
+                    i {
+                        color: #4d4d4d;
+                    }
+                }
+            }
+        }
+        .radioGroup {
+            display: flex;
+            align-items: flex-start;
+            input[type="radio"] {
+                display: none;
+                &:checked+label,
+                input:checked+label:before,
+                select:focus,
+                select:active {
+                    background-color: $cyan;
+                    color: $white;
+                    border-color: $cyan-dark;
+                }
+                +label {
+                    display: inline-block;
+                    width: 100%;
+                    text-align: center;
+                    float: left;
+                    border-radius: 0;
+                    padding: 10px 20px;
+		   
+                }
+            }
+            .radio-item:first-child > label {
+                @include border-radius(5px 0 0 5px);
+            }
+            .radio-item:last-child > label {
+                @include border-radius(0px 5px 5px 0px);
+            }
+        }
+        input[type="checkbox"] {
+            display: none;
+            +label {
+                position: relative;
+                display: block;
+                padding-left: 1.6em;
+                &:before {
+                    position: absolute;
+                    top: 8px;
+                    left: 0;
+                    display: block;
+                    width: 1em;
+                    height: 1em;
+                    padding: 0;
+                    content: "";
+                }
+                &:after {
+                    position: absolute;
+                    top: 6px;
+                    left: 2px;
+                    font-size: 0.8em;
+                    color: $white;
+                    opacity: 0;
+                    font-family: FontAwesome;
+                    content: "\f00c";
+                }
+            }
+            &:checked {
+                +label {
+                    &:before {
+                        background-color: $brand-color;
+                        border-color: $brand-color-hover;
+                    }
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        select {
+            line-height: 2;
+            padding-left: 60px;
+            &:focus {
+                outline: 0;
+            }
+            &:active {
+                outline: 0;
+            }
+            &:first-of-type {
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+            }
+            &:last-of-type {
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+            option {
+                background-color: $base-color;
+                color: #4d4d4d;
+            }
+        }
+	&.noIcon{
+		select, input{
+			padding-left:10px;
+		}
+		i{
+			display:none;
+		}
+	}
+	&.prefilled{
+		input[type="text"],
+        	input[type="password"],
+        	input[type="email"] {
+			background-color:transparent;
+			border:none;
+		}
+	}
+	&:focus{
+		box-shadow: 0 0 0 0.02rem rgba(30, 166, 154, 0.25);
+	}
+    }
+
+    .input-icon {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 3.4em;
+        height: 2.4em;
+        line-height: 2.4em;
+        text-align: center;
+        color: #999;
+        pointer-events: none;
+        &:after {
+            position: absolute;
+            top: 0.6em;
+            bottom: 0.6em;
+            left: 3.4em;
+            display: block;
+            border-right: 1px solid #e5e5e5;
+            content: "";
+            -webkit-transition: 0.35s ease-in-out;
+            -moz-transition: 0.35s ease-in-out;
+            -o-transition: 0.35s ease-in-out;
+            transition: 0.35s ease-in-out;
+            transition: all 0.35s ease-in-out;
+        }
+        i {
+            -webkit-transition: 0.35s ease-in-out;
+            -moz-transition: 0.35s ease-in-out;
+            -o-transition: 0.35s ease-in-out;
+            transition: 0.35s ease-in-out;
+            transition: all 0.35s ease-in-out;
+            font-size: 16px;
+        }
+    }
+}
+
+
+
+/*!
+ * Datetimepicker for Bootstrap v3
+ * Modified to use SASS instead of LESS
+ * https://github.com/soundasleep/bootstrap-datetimepicker-sass
+ * based off https://github.com/Eonasdan/bootstrap-datetimepicker/
+ * Copyright 2012 Stefan Petre
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+
+.bootstrap-datetimepicker-widget {
+    top: 0;
+    left: 0;
+    width: 250px;
+    padding: 4px;
+    margin-top: 1px;
+    z-index: 99999;
+    border-radius: 4px;
+
+    .btn {
+        padding: 6px;
+    }
+
+    &:before {
+        content: '';
+        display: inline-block;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-bottom: 7px solid #ccc;
+        border-bottom-color: rgba(0, 0, 0, .2);
+        position: absolute;
+        top: -7px;
+        left: 6px;
+    }
+
+    &:after {
+        content: '';
+        display: inline-block;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 6px solid white;
+        position: absolute;
+        top: -6px;
+        left: 7px;
+    }
+
+    &.pull-right {
+        &:before {
+            left: auto;
+            right: 6px;
+        }
+
+        &:after {
+            left: auto;
+            right: 7px;
+        }
+    }
+
+    >ul {
+        list-style-type: none;
+        margin: 0;
+    }
+
+    .timepicker-hour,
+    .timepicker-minute,
+    .timepicker-second {
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    table[data-hour-format="12"] .separator {
+        width: 4px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .datepicker>div {
+        display: none;
+    }
+
+    .picker-switch {
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        margin: 0;
+    }
+
+    td,
+    th {
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 4px;
+    }
+
+    td {
+        &.day:hover,
+        &.hour:hover,
+        &.minute:hover,
+        &.second:hover {
+            background: $gray-lighter;
+            cursor: pointer;
+        }
+
+        &.old,
+        &.new {
+            color: $gray-light;
+        }
+
+        &.active,
+        &.active:hover {
+            background-color: $brand-color-hover;
+            color: #fff;
+            text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+        }
+
+        &.disabled,
+        &.disabled:hover {
+            background: none;
+            color: $gray-light;
+            cursor: not-allowed;
+        }
+
+        span {
+            display: block;
+            width: 47px;
+            height: 54px;
+            line-height: 54px;
+            float: left;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: 4px;
+
+            &:hover {
+                background: $gray-lighter;
+            }
+
+            &.active {
+                background-color: $brand-color-hover;
+                color: #fff;
+                text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+            }
+
+            &.old {
+                color: $gray-light;
+            }
+
+            &.disabled,
+            &.disabled:hover {
+                background: none;
+                color: $gray-light;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    th {
+        &.switch {
+            width: 145px;
+        }
+
+        &.next,
+        &.prev {
+            font-size: $font-size-base * 1.5;
+        }
+
+        &.disabled,
+        &.disabled:hover {
+            background: none;
+            color: $gray-light;
+            cursor: not-allowed;
+        }
+    }
+
+    thead tr:first-child th {
+        cursor: pointer;
+
+        &:hover {
+            background: $gray-lighter;
+        }
+    }
+}
+
+.input-group {
+    &.date {
+        .input-group-addon span {
+            display: block;
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+    }
+}
+
+.bootstrap-datetimepicker-widget.left-oriented {
+    &:before {
+        left: auto;
+        right: 6px;
+    }
+
+    &:after {
+        left: auto;
+        right: 7px;
+    }
+}
+
+.bootstrap-datetimepicker-widget ul.list-unstyled li.in div.timepicker div.timepicker-picker table.table-condensed tbody>tr>td {
+    padding: 0px !important;
+}

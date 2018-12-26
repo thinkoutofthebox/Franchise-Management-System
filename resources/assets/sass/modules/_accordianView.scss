@@ -1,0 +1,37 @@
+.accordion{
+	.card{
+		margin-bottom:15px;
+		.card-header{
+			padding:10px 0px;
+			background-color:$white;
+			margin-bottom:0;
+			h5{
+				color:$black;
+				button{
+					display:block;
+					text-decoration:none;
+					color:$black;
+					position:relative;
+					padding-right:50px;
+					text-align:left;
+					@include anim(all, 0.3s, ease);
+					font-size:$font-16;
+					font-weight:500;
+					> i{
+					  	position:absolute;
+						right:15px;
+						top:10px;
+						font-size:$font-22;
+						transform:rotate(180deg);
+					}
+					&.collapsed{
+						@include anim(all, 0.3s, ease);
+						> i{
+							transform:rotate(360deg);
+						}
+					}
+				}
+			}
+		}
+	}
+}

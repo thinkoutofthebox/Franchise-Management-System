@@ -1,0 +1,63 @@
+@extends('layouts.loginreg')
+
+@section('content')
+	<div class="tab-pane active" id="LoginDiv">	
+                <div class="card-body" style="max-width:400px;">
+		   <div class="row">
+        		<div class="col-sm-12">
+               			 <h2 class="login-title">Welcom Back</h2>
+        		</div>
+    		   </div>
+                    <form method="POST" class="form-group" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+                        @csrf
+			<div class="row">
+				<div class="col-sm-12">
+                        		<div class="formControl">
+                            			<!--<label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>-->
+                            			<input id="email" type="email" placeholder="Email Address/Username" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+			    			<div class="input-icon"><i class="fa fa-user"></i></div>
+                                		@if ($errors->has('email'))
+                                    			<span class="invalid-feedback" role="alert">
+                                        			<strong>{{ $errors->first('email') }}</strong>
+                                    			</span>
+                                		@endif
+                            		</div>
+                        	</div>
+				<div class="col-sm-12">
+   	                     		<div class="formControl">
+                            			<!--<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>-->
+                                		<input id="password" type="password" placeholder="Password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+						<div class="input-icon"><i class="fa fa-key" aria-hidden="true"></i></div>
+                                		@if ($errors->has('password'))
+                                    			<span class="invalid-feedback" role="alert">
+                                        			<strong>{{ $errors->first('password') }}</strong>
+                                    			</span>
+                                		@endif
+                            		</div>
+                        	</div>
+                            	<div class="col-sm-12">
+                                	<div class="formControl">
+                                    		<input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    		<label class="form-check-label" for="remember">
+                                        		{{ __('Remember Me') }}
+                                    		</label>
+                                	</div>
+                            	</div>
+                            	<div class="col-sm-12">
+                                	<button type="submit" class="btn btn-primary btn-block">
+                                    		{{ __('Login') }}
+                                	</button>
+					<div class="forgotPass">
+                                		<a class="btn btn-link" href="{{ route('password.request') }}">
+                                    			{{ __('Forgot Your Password?') }}
+                                		</a>
+					</div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+	</div>
+	<div class="tab-pane" id="RegisterDiv">
+	 hi i am testing msg
+	</div>
+@endsection
