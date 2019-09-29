@@ -46,7 +46,7 @@ class StudentController extends Controller
             'address'     => 'required|min:10',
             'postal_code' => 'required|numeric|digits:6',
             'father_name' => 'required|string|max:255',
-            'image'       => 'required'
+            // 'image'       => 'required'
         ]);
     }
 
@@ -150,6 +150,7 @@ class StudentController extends Controller
         $last_date = new \DateTime();
         $last_date->modify('+30 days');
 		$post_data                                = $request->all();
+        echo "<pre>";print_r($post_data);die;
 		$StudentProduct                           = StudentProduct::find($post_data['product_id']);
 		if (!$StudentProduct->is_fee_submitted) {
 			$StudentProduct->batch_id                 = $post_data['batch_id'];
@@ -168,6 +169,7 @@ class StudentController extends Controller
 	        $StudentProduct->save();
 
 			$transaction                     = new StudentTransaction;
+            $transaction->student_id         = $post_data['student_id'];
             $transaction->product_id         = $post_data['product_id'];
             $transaction->invoice_number     = rand(1000000,9999999);
             $transaction->transaction_amount = $post_data['amount_paid'];
@@ -208,6 +210,7 @@ class StudentController extends Controller
 		$StudentProduct->save();
 		
         $transaction                     = new StudentTransaction;
+        $transaction->student_id         = $student_id;
         $transaction->product_id         = $product_id;
         $transaction->invoice_number     = rand(1000000,9999999);
         $transaction->transaction_amount = $balance_amount;
@@ -418,6 +421,7 @@ class StudentController extends Controller
         $StudentProduct->save();
 
         $transaction                     = new StudentTransaction;
+        $transaction->student_id         = $post_data['student_id'];
         $transaction->product_id         = $StudentProduct->id;
         $transaction->invoice_number     = rand(1000000,9999999);
         $transaction->transaction_amount = $post_data['amount_paid'];

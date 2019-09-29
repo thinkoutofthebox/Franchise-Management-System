@@ -50,67 +50,72 @@
 </div>
 <div class="card mb15">
     <div class="card-body">
-		<h3 class="section-title">Alloted Courses</h3>
-		<table class="table">
-			<tr>
-				<th width="10%">Status</th>
-				<th width="10%">Class Type</th>
-				<th width="20%">Product Name</th>
-				<th width="10%">Net Amount</th>
-				<th width="10%">Fee Paid</th>
-				<th width="10%">Balance Due</th>
-				<th width="20%">Pay Fee/Demo</th>
-				<th width="10%">Demos</th>
-			</tr>
-			@foreach($student->products as $product)
-			
-			<tr>
-				<td class="form-group">
-					@if($product->status == 'na')
-						{{ucwords($product->status)}}
-					@else
-					<div class="formControl">
-						<div class="radioGroup">
-						    <div class="radio-item">
-						        <input type="radio" id="active_{{$product->id+1}}" data-product_id="{{$product->id}}" name="status{{$product->id}}" value="active" {{$product->status == 'active'?'checked':''}}>
-						        <label for="active_{{$product->id+1}}">Active</label>
-						    </div>
-						    <div class="radio-item">
-					        	<input type="radio" id="left_{{$product->id+1}}" data-product_id="{{$product->id}}" name="status{{$product->id}}" value="left" {{$product->status == 'left'?'checked':''}}>
-						        <label for="left_{{$product->id+1}}">Left</label>
-						    </div>
-						</div>
-					</div>
-					@endif
-				</td>
-				<td>{{ucwords($product->class_type)}}</td>
-				<td>{{$product->product->product_name}}</td>
-				<td><i class="fa fa-rupee"></i> {{$product->net_due}}</td>
-				<td><i class="fa fa-rupee"></i> {{$product->amount_paid}}</td>
-				<td><i class="fa fa-rupee"></i> {{$product->balance_amount}}</td>
-				<td>
-				@if($product->class_type == 'demo')
-                <a href="{{url('/student-fee-form' .'/'.$student->id .'/'.$product->id)}}" class="btn btn-primary">Pay</a>
-                 <a href="{{url('/demo-class-form' .'/'.$student->id .'/'.$product->id)}}" class="btn btn-default">Take Demo</a>
-                @endif
-				@if(!$product->is_fee_submitted && $product->class_type == 'lead')
-				<a href="{{url('/demo-class-form' .'/'.$student->id .'/'.$product->id)}}" class="btn btn-default">Take Demo</a>
-				@endif
-				@if($product->class_type == 'paid' && $product->amount_paid != $product->net_due)
-					<a href="{{url('/student-fee-form' .'/'.$student->id .'/'.$product->id)}}" class="btn btn-primary">Pay</a>
-				@endif
-				</td>
-				@if(!is_null($product->product_demos))
-				<td>
-					@foreach($product->product_demos as $demo)
-						{{date('d M Y', strtotime($demo->demo_class_date))}} <br>
-					@endforeach
-				</td>
-				@endif
-			</tr>
+    	<div class="row">
+    		<div class="col-xs-12 col-sm-2"></div>
+    		<div class="col-xs-12 col-sm-10 studentInfo">
+				<h3 class="section-title">Alloted Courses</h3>
+				<table class="table">
+					<tr>
+						<th width="10%">Status</th>
+						<th width="10%">Class Type</th>
+						<th width="20%">Product Name</th>
+						<th width="10%">Net Amount</th>
+						<th width="10%">Fee Paid</th>
+						<th width="10%">Balance Due</th>
+						<th width="20%">Pay Fee/Demo</th>
+						<th width="10%">Demos</th>
+					</tr>
+					@foreach($student->products as $product)
+					
+					<tr>
+						<td class="form-group">
+							@if($product->status == 'na')
+								{{ucwords($product->status)}}
+							@else
+							<div class="formControl">
+								<div class="radioGroup">
+								    <div class="radio-item">
+								        <input type="radio" id="active_{{$product->id+1}}" data-product_id="{{$product->id}}" name="status{{$product->id}}" value="active" {{$product->status == 'active'?'checked':''}}>
+								        <label for="active_{{$product->id+1}}">Active</label>
+								    </div>
+								    <div class="radio-item">
+							        	<input type="radio" id="left_{{$product->id+1}}" data-product_id="{{$product->id}}" name="status{{$product->id}}" value="left" {{$product->status == 'left'?'checked':''}}>
+								        <label for="left_{{$product->id+1}}">Left</label>
+								    </div>
+								</div>
+							</div>
+							@endif
+						</td>
+						<td>{{ucwords($product->class_type)}}</td>
+						<td>{{$product->product->product_name}}</td>
+						<td><i class="fa fa-rupee"></i> {{$product->net_due}}</td>
+						<td><i class="fa fa-rupee"></i> {{$product->amount_paid}}</td>
+						<td><i class="fa fa-rupee"></i> {{$product->balance_amount}}</td>
+						<td>
+						@if($product->class_type == 'demo')
+		                <a href="{{url('/student-fee-form' .'/'.$student->id .'/'.$product->id)}}" class="btn btn-primary">Pay</a>
+		                 <a href="{{url('/demo-class-form' .'/'.$student->id .'/'.$product->id)}}" class="btn btn-default">Take Demo</a>
+		                @endif
+						@if(!$product->is_fee_submitted && $product->class_type == 'lead')
+						<a href="{{url('/demo-class-form' .'/'.$student->id .'/'.$product->id)}}" class="btn btn-default">Take Demo</a>
+						@endif
+						@if($product->class_type == 'paid' && $product->amount_paid != $product->net_due)
+							<a href="{{url('/student-fee-form' .'/'.$student->id .'/'.$product->id)}}" class="btn btn-primary">Pay</a>
+						@endif
+						</td>
+						@if(!is_null($product->product_demos))
+						<td>
+							@foreach($product->product_demos as $demo)
+								{{date('d M Y', strtotime($demo->demo_class_date))}} <br>
+							@endforeach
+						</td>
+						@endif
+					</tr>
 
-			@endforeach
-		</table>
+					@endforeach
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
 <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="mi-modal">
