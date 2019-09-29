@@ -67,8 +67,8 @@ class StudentController extends Controller
                                         ->where('phone', $phone_number)
                                         ->get()->first();
         if (is_null($student)) {
-        	// $otp = rand(1001, 9999);
-        	// $result = LaravelMsg91::sendOtp($phone_number, $otp, "Dear User, The verification code for registering with this mobile number is {$otp}");
+        	$otp = 1234;//rand(1001, 9999);
+        	$result = LaravelMsg91::sendOtp($phone_number, $otp, "Dear User, The verification code for registering with this mobile number is {$otp}");
             $products = Product::where('elc_id', $user->id)->get();
             return view('franchise.student.new_registration', ['products' => $products, 'phone'=> $phone_number]);
         } else {

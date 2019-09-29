@@ -10716,7 +10716,7 @@ body {
 }
 
 .loading {
-  background: lightgoldenrodyellow url("/../images/processing.gif") no-repeat center 65%;
+  background: lightgoldenrodyellow url("./../images/processing.gif") no-repeat center 65%;
   height: 80px;
   width: 100px;
   position: fixed;
