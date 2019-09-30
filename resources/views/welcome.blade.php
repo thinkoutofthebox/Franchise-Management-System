@@ -22,7 +22,7 @@
             }
 
             .full-height {
-                height: 100vh;
+                height: 30vh;
             }
 
             .flex-center {
@@ -62,6 +62,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+            .radixlogoImg {
+                text-align: center;
+                margin-bottom: 25px;
+            }
         </style>
     </head>
     <body>
@@ -70,15 +74,21 @@
                 <div class="top-right links">
                     @auth
                         @if(auth()->user()->user_type == 'admin')
-                            <a href="{{ url('/home') }}">Home</a>
+                            <a href="{{ url('/dashboard') }}">Go to Admin Dashboard</a>
                         @else
-                            <a href="{{ url('/franchise') }}">Franchise</a>
+                            <a href="{{ url('/franchise') }}">Go To Franchise Dashboard</a>
                         @endif
                     @else
                         <a href="{{ route('login') }}">Login/Register</a>
                     @endauth
                 </div>
             @endif
+        </div>
+        <header class="container-sm radixlogoImg text-center">
+            <img src="{{ asset('images/radixEdusystemLogo.png') }}" alt="Rdix Edusystems"/>
+        </header>
+        <div style="font-size:50px; text-align: center;font-weight: 600; color: blue;">
+            Franchise Management System
         </div>
     </body>
 </html>

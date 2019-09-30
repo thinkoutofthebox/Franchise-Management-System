@@ -18,7 +18,7 @@
 				</div>
 			</div>
 			@endif
-			@if(!auth()->user()->is_approved)
+			@if(auth()->user()->is_approved === false)
 			<div class="card">
 				<div class="card-body">
 					<p>Your Application has been dis-approved. Please contact our team for more information.</p>

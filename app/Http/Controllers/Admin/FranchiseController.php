@@ -24,7 +24,7 @@ class FranchiseController extends Controller
                                             ->orwhere('email','like', '%'.$search.'%')
                                             ->orwhere('phone','like', '%'.$search.'%');
                                         })
-                                        ->paginate(2);
+                                        ->paginate(100);
         return view('admin.franchise.load_list', ['franchises'=>$franchises]);
     }
 
